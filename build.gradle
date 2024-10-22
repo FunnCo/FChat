@@ -36,9 +36,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    // H2 для тестирования
-    runtimeOnly 'com.h2database:h2'
-
     // DevTools для разработки (опционально)
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
@@ -46,13 +43,12 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 
-    // Swagger для документирования API
-    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
 
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.14")
+    implementation("org.springframework.boot:spring-boot-starter-web")
 }
 
-test {
-    useJUnitPlatform()
-}
