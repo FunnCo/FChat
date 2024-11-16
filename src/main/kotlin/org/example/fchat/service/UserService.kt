@@ -49,8 +49,8 @@ class UserService(private val userRepository: UserRepository, private val authSe
         }
 
         userToUpdate.username = newData.username ?: userToUpdate.username
-        userToUpdate.password = newData.password ?: userToUpdate.password
-        userToUpdate.email = newData.email ?: userToUpdate.username
+        userToUpdate.password = authService.getEncodedPassword(newData.password) ?: userToUpdate.password
+        userToUpdate.email = newData.email ?: userToUpdate.email
 
         return userRepository.save(userToUpdate).toDTO()
     }

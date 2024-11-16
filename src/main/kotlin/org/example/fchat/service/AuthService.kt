@@ -44,6 +44,13 @@ class AuthService(val userRepository: UserRepository, val passwordEncoder: Passw
         }
     }
 
+    fun getEncodedPassword(password: String?): String? {
+        if(password == null){
+            return null
+        }
+        return passwordEncoder.encode(password)
+    }
+
     fun generateToken(userId: String): String {
         val claims: MutableMap<String, Any> = HashMap()
         return createToken(claims, userId)
